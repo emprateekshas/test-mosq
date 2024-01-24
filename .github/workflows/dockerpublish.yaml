@@ -16,7 +16,7 @@ on:
   # workflow_dispatch:
 
 env:
-  app: mosquitto
+  app: test-mosq
 
 jobs:
   docker:
@@ -52,9 +52,9 @@ jobs:
             MTC_PASSWD=${{ secrets.MTC_PASSWD }}
           # docker hub user/repo:tag
           tags: |
-            ${{ secrets.DOCKERHUB_USRNAME }}/mosquitto:latest
-            ${{ secrets.DOCKERHUB_USRNAME }}/mosquitto:${{ env.VERSION }}
-            ${{ secrets.DOCKERHUB_USRNAME }}/mosquitto:${{ env.MAJOR_VERSION }}
+            ${{ secrets.DOCKERHUB_USRNAME }}/test-mosq:latest
+            ${{ secrets.DOCKERHUB_USRNAME }}/test-mosq:${{ env.VERSION }}
+            ${{ secrets.DOCKERHUB_USRNAME }}/test-mosq:${{ env.MAJOR_VERSION }}
           # push to docker hub
           push: true
 
