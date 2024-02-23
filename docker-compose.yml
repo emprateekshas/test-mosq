@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  mosquitto:
+    container_name: mosquitto
+    hostname: mosquitto
+    image: eclipse-mosquitto:latest
+    volumes:
+      - "/etc/mosquitto/data:/mosquitto/data"
+      - "/etc/mosquitto/log:/mosquitto/log"
+    ports:
+      - 1883:1883/tcp
+      - 9001:9001/tcp
+    restart: unless-stopped
+
