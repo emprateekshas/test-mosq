@@ -57,8 +57,8 @@ jobs:
           # docker hub user/repo:tag
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:${{ env.VERSION }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:${{ env.MAJOR_VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:${{ env.VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:${{ env.MAJOR_VERSION }}
           # push to docker hub
           push: true
 
