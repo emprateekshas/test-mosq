@@ -1,0 +1,41 @@
+name: Docker Test
+
+on:
+  push:
+    # Test `develop`
+    branches:
+      - develop
+      #- dev
+      #- main
+
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  IMAGE_NAME: mosquitto
+
+jobs:
+  # Run tests.
+  # See also https://docs.docker.com/docker-hub/builds/automated-testing/
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tests
+        run: |
+          if [ -f docker-compose.test.yml ]; then
+            docker-compose --file docker-compose.test.yml build
+            docker-compose --file docker-compose.test.yml run sut
+          else
+            docker build \
+            --secret id=MTC_PASSWD,env=MTC_PASSWD \
+            --secret id=MTC_USERNAME,env=MTC_USERNAME \
+            --secret id=ODS_USERNAME,env=ODS_USERNAME \
+            --secret id=ODS_PASSWD,env=ODS_PASSWD \
+            --build-arg MTC_USERNAME="${MTC_USERNAME}" \
+            --build-arg MTC_PASSWD="${MTC_PASSWD}" \
+            --build-arg ODS_USERNAME="${ODS_USERNAME}" \
+            --build-arg ODS_PASSWD="${ODS_PASSWD}" . --file Dockerfile
+          fi
