@@ -52,8 +52,8 @@ jobs:
           secrets: |
             MTC_PASSWD=${{ secrets.MTC_PASSWD }}
             MTC_USERNAME=${{ secrets.MTC_USERNAME }}
-#ODS_PASSWD=${{ secrets.ODS_PASSWD }}
-#ODS_USERNAME=${{ secrets.ODS_USERNAME }}
+	    ODS_PASSWD=${{ secrets.ODS_PASSWD }}
+	    ODS_USERNAME=${{ secrets.ODS_USERNAME }}
           # docker hub user/repo:tag
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:latest
