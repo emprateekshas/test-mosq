@@ -16,7 +16,7 @@ on:
   # workflow_dispatch:
 
 env:
-  app: mosquitto
+  app: test-mosquitto
 
 jobs:
   docker:

@@ -12,7 +12,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: mosquitto
+  IMAGE_NAME: test-mosquitto
 
 jobs:
   # Run tests.
