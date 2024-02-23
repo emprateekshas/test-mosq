@@ -48,7 +48,6 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          build-args: --no-cache
           secrets: |
             MTC_PASSWD=${{ secrets.MTC_PASSWD }}
             MTC_USERNAME=${{ secrets.MTC_USERNAME }}
@@ -56,9 +55,9 @@ jobs:
 	    ODS_USERNAME=${{ secrets.ODS_USERNAME }}
           # docker hub user/repo:tag
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:${{ env.VERSION }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:${{ env.MAJOR_VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/New-mosquitto:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/New-mosquitto:${{ env.VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/New-mosquitto:${{ env.MAJOR_VERSION }}
           # push to docker hub
           push: true
 
