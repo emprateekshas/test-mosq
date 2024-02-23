@@ -16,7 +16,7 @@ on:
   # workflow_dispatch:
 
 env:
-  app: test-mosquitto
+  app: mosquitto
 
 jobs:
   docker:
@@ -55,7 +55,7 @@ jobs:
             ODS_USERNAME=${{ secrets.ODS_USERNAME }}
           # docker hub user/repo:tag
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/test-mosquitto:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:${{ env.VERSION }}
             ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:${{ env.MAJOR_VERSION }}
           # push to docker hub
