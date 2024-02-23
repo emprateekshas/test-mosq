@@ -13,7 +13,6 @@ RUN --mount=type=secret,id=ODS_PASSWD,target=/run/secrets/ODS_PASSWD \
     --mount=type=secret,id=ODS_USERNAME,target=/run/secrets/ODS_USERNAME \
     mosquitto_passwd -b /mosquitto/data/passwd "$(cat /run/secrets/ODS_USERNAME)" "$(cat /run/secrets/ODS_PASSWD)"
 
-
 VOLUME ["/mosquitto/data", "/mosquitto/log"]
 EXPOSE 1883
 ENTRYPOINT ["/docker-entrypoint.sh"]
