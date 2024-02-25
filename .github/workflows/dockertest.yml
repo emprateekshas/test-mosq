@@ -30,12 +30,12 @@ jobs:
             echo "Secret MTC_PASSWD is missing!" 
             exit 1 
           fi 
-          if [ -z "${{ secrets.MTC_USRNAME }}" ]; then 
-            echo "Secret MTC_USRNAME is missing!" 
+          if [ -z "${{ secrets.MTC_USERNAME }}" ]; then 
+            echo "Secret MTC_USERNAME is missing!" 
             exit 1 
           fi 
           echo "MTC_PASSWD=${{ secrets.MTC_PASSWD }}" >> $GITHUB_ENV 
-          echo "MTC_USRNAME=${{ secrets.MTC_USRNAME }}" >> $GITHUB_ENV 
+          echo "MTC_USERNAME=${{ secrets.MTC_USERNAME }}" >> $GITHUB_ENV 
       
       - name: Run tests
         run: |
