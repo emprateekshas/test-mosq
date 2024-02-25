@@ -22,7 +22,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Set password and username secrets as environment variables 
 
+        run: | 
+          if [ -z "${{ secrets.MTC_PASSWD }}" ]; then 
+            echo "Secret MTC_PASSWD is missing!" 
+            exit 1 
+          fi 
+          if [ -z "${{ secrets.MTC_USRNAME }}" ]; then 
+            echo "Secret MTC_USRNAME is missing!" 
+            exit 1 
+          fi 
+          echo "MTC_PASSWD=${{ secrets.MTC_PASSWD }}" >> $GITHUB_ENV 
+          echo "MTC_USRNAME=${{ secrets.MTC_USRNAME }}" >> $GITHUB_ENV 
+      
       - name: Run tests
         run: |
           if [ -f docker-compose.test.yml ]; then
