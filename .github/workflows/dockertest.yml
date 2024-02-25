@@ -47,6 +47,7 @@ jobs:
           echo "ODS_USERNAME=${{ secrets.ODS_USERNAME }}" >> $GITHUB_ENV 
           echo "ODS_PASSWD=${{ secrets.ODS_PASSWD }}" >> $GITHUB_ENV 
       
+      
       - name: Run tests
         run: |
           if [ -f docker-compose.test.yml ]; then
@@ -55,10 +56,10 @@ jobs:
           else
             docker build \
             --no-cache \
-#            --secret id=MTC_PASSWD,env=MTC_PASSWD \
-#            --secret id=MTC_USERNAME,env=MTC_USERNAME \
-#            --secret id=ODS_USERNAME,env=ODS_USERNAME \
-#            --secret id=ODS_PASSWD,env=ODS_PASSWD \
+            --secret id=MTC_PASSWD,env=MTC_PASSWD \
+            --secret id=MTC_USERNAME,env=MTC_USERNAME \
+            --secret id=ODS_USERNAME,env=ODS_USERNAME \
+            --secret id=ODS_PASSWD,env=ODS_PASSWD \
             --build-arg MTC_USERNAME="${MTC_USERNAME}" \
             --build-arg MTC_PASSWD="${MTC_PASSWD}" \
             --build-arg ODS_USERNAME="${ODS_USERNAME}" \
