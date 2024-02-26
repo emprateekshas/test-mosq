@@ -3,8 +3,8 @@ name: Docker Publish
 on:
   push:
     # Publish `main` as Docker `latest` image.
-    #branches:
-      #- "develop"
+    branches:
+      - "develop"
 
     # Publish `2.1.2` tags as releases.
     tags:
@@ -24,7 +24,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
