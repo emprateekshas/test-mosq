@@ -59,10 +59,6 @@ jobs:
             --secret id=MTC_PASSWD,env=MTC_PASSWD \
             --secret id=MTC_USERNAME,env=MTC_USERNAME \
             --secret id=ODS_USERNAME,env=ODS_USERNAME \
-            --secret id=ODS_PASSWD,env=ODS_PASSWD \
-            --build-arg MTC_USERNAME="${MTC_USERNAME}" \
-            --build-arg MTC_PASSWD="${MTC_PASSWD}" \
-            --build-arg ODS_USERNAME="${ODS_USERNAME}" \
-            --build-arg ODS_PASSWD="${ODS_PASSWD}" . --file Dockerfile
+            --secret id=ODS_PASSWD,env=ODS_PASSWD . --file Dockerfile
           fi
           
