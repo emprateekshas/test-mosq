@@ -26,7 +26,7 @@ jobs:
       - name: Set password and username secrets as environment variables
         run: |
           
-          echo "MTC_PASSWD=${{ secrets.MTC_PASSWD }}" >> $GITHUB_ENV 
+          echo "MTC_PASSWD=${{ secrets.MTC_PASSWOD }}" >> $GITHUB_ENV 
           echo "MTC_USERNAME=${{ secrets.MTC_USERNAME }}" >> $GITHUB_ENV 
           echo "ODS_USERNAME=${{ secrets.ODS_USERNAME }}" >> $GITHUB_ENV 
           echo "ODS_PASSWD=${{ secrets.ODS_PASSWD }}" >> $GITHUB_ENV 
