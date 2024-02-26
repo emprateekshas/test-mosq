@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-       - name: Set password and username secrets as environment variables
+      - name: Set password and username secrets as environment variables
         run: |
           
           echo "MTC_PASSWD=${{ secrets.MTC_PASSWD }}" >> $GITHUB_ENV 
