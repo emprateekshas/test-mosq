@@ -43,10 +43,10 @@ jobs:
             exit 1 
           fi 
           
-            MTC_PASSWD=${{ secrets.MTC_PASSWD }}
-            MTC_USERNAME=${{ secrets.MTC_USERNAME }}
-            ODS_PASSWD=${{ secrets.ODS_PASSWD }}
-            ODS_USERNAME=${{ secrets.ODS_USERNAME }}
+          echo "MTC_PASSWD=${{ secrets.MTC_PASSWD }}" >> $GITHUB_ENV 
+          echo "MTC_USERNAME=${{ secrets.MTC_USERNAME }}" >> $GITHUB_ENV 
+          echo "ODS_USERNAME=${{ secrets.ODS_USERNAME }}" >> $GITHUB_ENV 
+          echo "ODS_PASSWD=${{ secrets.ODS_PASSWD }}" >> $GITHUB_ENV 
       - name: Run tests
         run: |
           if [ -f docker-compose.test.yml ]; then
