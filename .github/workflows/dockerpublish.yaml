@@ -55,7 +55,7 @@ jobs:
             ODS_USERNAME=${{ secrets.ODS_USERNAME }}
           # docker hub user/repo:tag
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/Prax-mosquitto:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/prax-mosquitto:latest
 #            ${{ secrets.DOCKERHUB_USERNAME }}/new-mosquitto:${{ env.VERSION }}
 #           ${{ secrets.DOCKERHUB_USERNAME }}/new-mosquitto:${{ env.MAJOR_VERSION }}
           # push to docker hub
