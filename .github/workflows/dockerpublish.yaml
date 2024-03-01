@@ -4,7 +4,7 @@ on:
   push:
     # Publish `main` as Docker `latest` image.
     #branches:
-     # - "develop"
+      #- "main"
 
     # Publish `2.1.2` tags as releases.
     tags:
@@ -24,7 +24,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -55,9 +55,9 @@ jobs:
             ODS_USERNAME=${{ secrets.ODS_USERNAME }}
           # docker hub user/repo:tag
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/tag-mosquitto:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/tag-mosquitto:${{ env.VERSION }}
-           ${{ secrets.DOCKERHUB_USERNAME }}/tag-mosquitto:${{ env.MAJOR_VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:${{ env.VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/mosquitto:${{ env.MAJOR_VERSION }}
           # push to docker hub
           push: true
 
@@ -65,3 +65,4 @@ jobs:
       # steps:
       #   - name: Build and push Docker images
       #     uses: docker/build-push-action@v2.5.0
+
