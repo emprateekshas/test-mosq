@@ -5,7 +5,7 @@
 FROM eclipse-mosquitto:latest AS mosquitto
 
 # RUN --mount=type=secret,id=mtc_password mosquitto_passwd -c -b /mosquitto/data/passwd mtconnect $(cat /run/secrets/mtc_password)
-RUN --mount=type=secret,id=MTC_PASSWD,target=/run/secrets/MTC_PASSWD \
+RUN --mount=type=secret,id=MTC_PASSWOD,target=/run/secrets/MTC_PASSWD \
     --mount=type=secret,id=MTC_USERNAME,target=/run/secrets/MTC_USERNAME \
     mosquitto_passwd -c -b /mosquitto/data/passwd "$(cat /run/secrets/MTC_USERNAME)" "$(cat /run/secrets/MTC_PASSWD)"
 
